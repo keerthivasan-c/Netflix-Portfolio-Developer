@@ -8,6 +8,7 @@ const GET_PROJECTS = `
       title
       description
       techUsed
+      projectLink
       image {
         url
       }

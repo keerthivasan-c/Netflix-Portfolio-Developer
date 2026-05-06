@@ -29,6 +29,7 @@ export interface Project {
   description: string;
   techUsed: string;
   image: { url: string };
+  projectLink:string;
 }
 
 export interface Certification {

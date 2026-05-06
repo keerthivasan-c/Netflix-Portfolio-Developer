@@ -20,6 +20,10 @@
   animation: fadeInUp 0.5s forwards ease-in-out;
   animation-delay: var(--delay);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+
 }
 
 .project-card:hover {

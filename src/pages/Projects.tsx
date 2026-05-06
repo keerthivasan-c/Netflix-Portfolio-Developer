@@ -78,8 +78,11 @@ const Projects: React.FC = () => {
     <div className="projects-container">
       <div className="projects-grid">
         {projects.map((project, index) => (
-          <div
+          <a
+          href={project.projectLink}
             key={index}
+            target="_blank"
+            rel="noopener noreferrer"
             className="project-card"
             style={{ '--delay': `${index * 0.1}s` } as React.CSSProperties}
           >
@@ -95,7 +98,7 @@ const Projects: React.FC = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>

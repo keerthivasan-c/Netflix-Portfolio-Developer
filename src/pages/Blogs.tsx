@@ -4,18 +4,18 @@ import { FaMedium, FaDev } from 'react-icons/fa';
 
 const blogs = [
   {
-    title: "Make Your Rails Console Look Better",
+    title: "The Frameworks That Actually Make Product Managers Better at Their Jobs",
     platform: "Medium",
     icon: <FaMedium />,
-    link: "https://medium.com/@chintusamala96/make-your-rails-console-look-better-510988d40566",
-    description: "Learn tips to customize your Rails console for a better experience.",
+    link: "https://medium.com/@keerthivasan.chandrasekar100/the-frameworks-that-actually-make-product-managers-better-at-their-jobs-cc9f33f1af46",
+    description: "The Frameworks That Actually Make Product Managers Better at Their Jobs",
   },
   {
-    title: "Docker Fundas - My Version",
+    title: "AI Agent as my Job Hunting Assistant: A Game-Changer in the Job Search Process",
     platform: "Medium",
     icon: <FaMedium />,
-    link: "https://medium.com/@chintusamala96/docker-fundas-my-version-7b9262bd90d4",
-    description: "An introductory guide to Docker fundamentals from my perspective.",
+    link: "https://medium.com/@keerthivasan.chandrasekar100/i-was-tired-of-job-hunting-so-i-built-an-ai-agent-to-do-it-for-me-582bcd3e997d",
+    description: "I Was Tired of Job Hunting, So I Built an AI Agent to Do It For Me",
   },
   {
     title: "Grape Gem in Ruby on Rails: Handling User Model and API Endpoint",
