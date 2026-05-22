@@ -3,14 +3,21 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaHome, FaBriefcase, FaTools, FaProjectDiagram, FaEnvelope } from 'react-icons/fa'; // Import icons
 import './Navbar.css';
 import netflixLogo from '../images/logo-2.png';
-import blueImage from '../images/blue.png';
+import { getProfileConfig, getRememberedProfile } from '../profileConfig';
 
 const Navbar: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const profileImage = location.state?.profileImage || blueImage;
+  const profileNameFromPath = location.pathname.match(/^\/profile\/([^/]+)/)?.[1];
+  const activeProfile = profileNameFromPath ? getProfileConfig(profileNameFromPath) : getRememberedProfile();
+  const profileImage = location.state?.profileImage || activeProfile.image;
+  const homeRoute = `/profile/${activeProfile.name}`;
+  const homeState = {
+    profileImage: activeProfile.image,
+    backgroundGif: activeProfile.backgroundGif,
+  };
 
   const handleScroll = () => {
     setIsScrolled(window.scrollY > 80);
@@ -37,7 +44,7 @@ const Navbar: React.FC = () => {
             <img src={netflixLogo} alt="Netflix" />
           </Link>
           <ul className="navbar-links">
-            <li><Link to="/browse">Home</Link></li>
+            <li><Link to={homeRoute} state={homeState}>Home</Link></li>
             <li><Link to="/work-experience">Professional</Link></li>
             <li><Link to="/skills">Skills</Link></li>
             <li><Link to="/projects">Projects</Link></li>
@@ -64,7 +71,7 @@ const Navbar: React.FC = () => {
           <img src={netflixLogo} alt="Netflix Logo" />
         </div>
         <ul>
-          <li><Link to="/browse" onClick={closeSidebar}><FaHome /> Home</Link></li>
+          <li><Link to={homeRoute} state={homeState} onClick={closeSidebar}><FaHome /> Home</Link></li>
           <li><Link to="/work-experience" onClick={closeSidebar}><FaBriefcase /> Professional</Link></li>
           <li><Link to="/skills" onClick={closeSidebar}><FaTools /> Skills</Link></li>
           <li><Link to="/projects" onClick={closeSidebar}><FaProjectDiagram /> Projects</Link></li>
